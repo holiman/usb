@@ -36,11 +36,15 @@ package usb
 
 #if defined(OS_LINUX) || defined(OS_DARWIN) || defined(DOS_FREEBSD) || defined(OS_OPENBSD)
 	#include <poll.h>
-	#include "os/threads_posix.c"
-	#include "os/events_posix.c"
+
+	#include "os/events_posix.h"
+	#include "os/threads_posix.h"
+
 #elif defined(OS_WINDOWS)
-	#include "os/events_windows.c"
-	#include "os/threads_windows.c"
+
+	#include "os/events_windows.h"
+	#include "os/threads_windows.h"
+
 #endif
 
 #ifdef OS_LINUX
