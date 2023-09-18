@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with the library. If not, see <http://www.gnu.org/licenses/>.
 
+//go:build (freebsd && cgo) || (linux && cgo) || (darwin && !ios && cgo) || (windows && cgo)
 // +build freebsd,cgo linux,cgo darwin,!ios,cgo windows,cgo
 
 package usb
@@ -36,9 +37,9 @@ package usb
 #if defined(OS_LINUX) || defined(OS_DARWIN) || defined(DOS_FREEBSD) || defined(OS_OPENBSD)
 	#include <poll.h>
 	#include "os/threads_posix.c"
-	#include "os/poll_posix.c"
+	#include "os/events_posix.c"
 #elif defined(OS_WINDOWS)
-	#include "os/poll_windows.c"
+	#include "os/events_windows.c"
 	#include "os/threads_windows.c"
 #endif
 
