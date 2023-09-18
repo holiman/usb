@@ -55,9 +55,9 @@ package usb
 	#include "os/darwin_usb.c"
 	#include "hidapi/mac/hid.c"
 #elif OS_WINDOWS
-	#include "os/windows_nt_common.c"
-	#include "os/windows_usbdk.c"
-	#include "os/windows_winusb.c"
+	#include "os/windows_common.h"
+	#include "os/windows_usbdk.h"
+	#include "os/windows_winusb.h"
 	#include "hidapi/windows/hid.c"
 #elif OS_FREEBSD
 	#include <libusb.h>
